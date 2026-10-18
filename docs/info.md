@@ -1,20 +1,11 @@
-<!---
-
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
-
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
-
 ## How it works
 
-Explain how your project works
+Lock mechanism which you have to open by guessing a correct combination. Once it has been guessed a buzzer goes off and a LED is switched on.
 
 ## How to test
 
-Explain how to use your project
+Hold rst_n low for a few clock cycles, then raise it. The pin table in info.yaml says what each input and output does.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+None.
