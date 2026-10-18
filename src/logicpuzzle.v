@@ -27,7 +27,7 @@ module tt_um_so_reire_logic_lock #(
     wire code   = ~ui_in[2] & ui_in[3] & ui_in[4];  // ui_in[4:2] == 3'b110
     wire relock = ui_in[1];
 
-    localparam OPEN_SECONDS = 5;
+    localparam OPEN_SECONDS = 2;
     localparam OPEN_CYCLES  = OPEN_SECONDS * CLK_HZ;
     localparam COUNTER_BITS = $clog2(OPEN_CYCLES);
     reg [COUNTER_BITS-1:0] count;
@@ -69,7 +69,7 @@ module tt_um_so_reire_logic_lock #(
         if (!rst_n || state != UNLOCKED) begin
             tone_cnt <= 0;
             buzzer   <= 1'b0;
-        end else if (tone_cnt == TONE_HALF - 1) begin
+        end else if (tone_cnt == TONE_BITS'(TONE_HALF - 1)) begin
             tone_cnt <= 0;
             buzzer   <= ~buzzer;
         end else begin
